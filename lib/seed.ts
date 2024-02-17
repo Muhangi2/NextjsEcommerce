@@ -19,6 +19,7 @@ export async function seedSanityData() {
     }
     transaction.createOrReplace(product)
   })
+  console.log(transaction)
   await transaction.commit()
   await seedSanityImages()
   console.log("Sanity data seeded")

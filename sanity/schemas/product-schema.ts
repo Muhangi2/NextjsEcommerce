@@ -25,7 +25,40 @@ export const product = defineType({
             name:"categories",
             title:"Categories",
             type:"array",
+            of:[{type:"string"}]
+        },
+        {
+            name:"size",
+            title:"Size",
+            type:"array",
+            of:[{type:"string"}]
+        },{
+            name:"colors",
+            title:"Colors",
+            type:"array",
+            of :[{type:"string"}]
+        },
+        {
+            name:"description",
+            title:"Description",
+            type:"string"
+        },
+        {
+            name:"sku",
+            title:"Sku",
+            type:"string"
+        },
+        {
+            name:"currency",
+            title:"Currency",
+            type:"string"
+        },
+        {
+            name:"price",
+            title:"Price",
+            type:"number"
         }
+
     
     ]
 })
