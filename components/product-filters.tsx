@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import {
   Accordion,
@@ -48,6 +48,10 @@ const filters = [
 ]
 
 export function ProductFilters() {
+  const pathname = usePathname()
+  const router = useRouter()
+  cosnt searchparams= useSearchParams()
+  
   return (
     <form className="sticky top-20">
       <h3 className="sr-only">Categories</h3>
@@ -68,7 +72,17 @@ export function ProductFilters() {
                     key={option.value}
                     className="flex items-center space-x-2"
                   >
-                    <Checkbox />
+                    <Checkbox
+                      onClick={(event) => {
+                        const params = new URLSearchParams(searchparams)
+                        const checked =
+                          event.currentTarget.dataset.state === "checked"
+                        checked
+                          ? params.delete(section.id)
+                          : params.set(section.id, option.value)
+                        router.push(`${pathname}?${params.toString()}`)
+                      }}
+                    />
                     <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       Label
                     </label>
