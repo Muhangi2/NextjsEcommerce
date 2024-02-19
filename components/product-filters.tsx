@@ -50,8 +50,8 @@ const filters = [
 export function ProductFilters() {
   const pathname = usePathname()
   const router = useRouter()
-  cosnt searchparams= useSearchParams()
-  
+  const searchparams = useSearchParams()
+
   return (
     <form className="sticky top-20">
       <h3 className="sr-only">Categories</h3>
